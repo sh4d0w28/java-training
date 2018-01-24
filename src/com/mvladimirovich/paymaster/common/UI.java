@@ -7,7 +7,7 @@ import java.util.Scanner;
 
 public class UI {
 
-    private static Scanner scanner = new Scanner(System.in);
+    private final static Scanner scanner = new Scanner(System.in);
 
     private static String wrapPromt(String s) {
         return s + " /> ";

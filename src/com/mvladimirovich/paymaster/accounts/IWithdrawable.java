@@ -1,6 +1,6 @@
 package com.mvladimirovich.paymaster.accounts;
 
-public interface IWithdrawable {
+interface IWithdrawable {
 
 	void withdraw(double moneyToWithdraw);
 

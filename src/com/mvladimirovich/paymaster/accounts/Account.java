@@ -1,6 +1,5 @@
 package com.mvladimirovich.paymaster.accounts;
 
-import com.mvladimirovich.paymaster.common.Log;
 import java.io.Serializable;
 import java.text.NumberFormat;
 import java.util.Locale;
@@ -10,11 +9,11 @@ public abstract class Account implements IWithdrawable, IDepositable, Serializab
     private double depositFee = 0;
     private double withdrawFee = 0;
 
-    static int accCnt = 0;
+    private static int accCnt = 0;
 
-    private int id;
-	private AccountTypeEnum type;
-	private String holderName;
+    private final int id;
+	private final AccountTypeEnum type;
+	private final String holderName;
 	private double balance;
 
     public Account(AccountTypeEnum type, String holder, double initBalance) {

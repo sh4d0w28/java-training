@@ -2,16 +2,9 @@ package com.mvladimirovich.paymaster.common;
 
 public class Log {
 
-    private static String goodStr = "[OK ]: ";
-    private static String errorStr = "[ERR]: ";
+    private static String wrapGood(String s) { return "[OK ]: " + s; }
 
-    private static String wrapGood(String s) {
-        return goodStr + s;
-    }
-
-    private static String wrapError(String s) {
-        return errorStr + s;
-    }
+    private static String wrapError(String s) { return "[ERR]: " + s; }
 
     public static void printlnGood(String s) { System.out.println(wrapGood(s)); }
 

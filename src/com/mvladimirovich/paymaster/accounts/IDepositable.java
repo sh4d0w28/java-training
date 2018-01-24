@@ -1,6 +1,6 @@
 package com.mvladimirovich.paymaster.accounts;
 
-public interface IDepositable {
+interface IDepositable {
 
 	void deposit(double moneyToDeposit);
 

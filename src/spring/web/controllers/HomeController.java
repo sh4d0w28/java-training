@@ -1,10 +1,10 @@
 package spring.web.controllers;
 
+import com.mvladimirovich.paymaster.users.IUserStorage;
+import com.mvladimirovich.paymaster.users.User;
+import com.mvladimirovich.paymaster.users.UserFileStorage;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
-import paymaster.accounts.AccountTypeEnum;
-import paymaster.users.User;
-import paymaster.users.UserStorage;
 
 import java.util.List;
 
@@ -14,7 +14,7 @@ public class HomeController {
     @GetMapping("/1")
     public List<User> getUsers() {
 
-        UserStorage storage = new UserStorage();
-        return storage.load();
+        IUserStorage storage = new UserFileStorage();
+        return storage.list();
     }
 }

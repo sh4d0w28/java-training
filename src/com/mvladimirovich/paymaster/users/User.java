@@ -20,7 +20,7 @@ public class User implements Serializable {
     }
 
     private int id;
-    private String name;
+    private final String name;
     private Account account;
 
     public User(String name, AccountTypeEnum accountType, double initBalance) {

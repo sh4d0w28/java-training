@@ -14,7 +14,7 @@ public class UserFileStorage implements IUserStorage {
     private static final String ERR_CANNOTSAVE = "Cannot save data";
     private static final String ERR_CANNOTLOAD = "Cannot load data";
 
-    public List<User> users;
+    private List<User> users;
 
     public UserFileStorage() {
         users = new ArrayList<>();
@@ -22,7 +22,7 @@ public class UserFileStorage implements IUserStorage {
 
     private List<User> loadFromFS() {
         try (FileInputStream binaryFis = new FileInputStream(storage);
-             ObjectInputStream ois = new ObjectInputStream(binaryFis);
+             ObjectInputStream ois = new ObjectInputStream(binaryFis)
         ) {
             Object obj = ois.readObject();
             List<User> result = (List<User>) obj;
@@ -37,7 +37,7 @@ public class UserFileStorage implements IUserStorage {
 
     private boolean saveToFS() {
         try (FileOutputStream binaryFos = new FileOutputStream(storage);
-             ObjectOutputStream oos = new ObjectOutputStream(binaryFos);
+             ObjectOutputStream oos = new ObjectOutputStream(binaryFos)
         ) {
             oos.writeObject(users);
             paymaster.log.Log.printlnGood("Data saved to " + storage);

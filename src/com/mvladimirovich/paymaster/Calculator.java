@@ -2,7 +2,7 @@ package com.mvladimirovich.paymaster;
 
 import com.mvladimirovich.paymaster.common.Log;
 
-public class Calculator {
+class Calculator {
 
     private static final int taxrate = 45;
     private static final int basicHrs = 40;
