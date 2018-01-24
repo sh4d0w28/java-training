@@ -12,13 +12,13 @@ public class App {
 
     private static Scanner scanner = new Scanner(System.in);
 
-    //private static UserStorage saveLoader = new UserStorage();
-    private static UserDbStorage dbStorage = new UserDbStorage();
+    private static UserStorage saveLoader = new UserStorage();
+    //private static UserDbStorage dbStorage = new UserDbStorage();
 
     public static void main(String[] args) {
 
-        //saveLoader.load();
-        dbStorage.loadUsers(); // NEW
+        saveLoader.load();
+        //dbStorage.loadUsers(); // NEW
 
         int selectedOption;
         do {
@@ -39,13 +39,13 @@ public class App {
             }
         } while( selectedOption != 0);
 
-        //saveLoader.Save();
+        saveLoader.Save();
     }
 
     private static int menu()
     {
-        //common.displayMenu(saveLoader.getSize());
-        common.displayMenu(dbStorage.getSize()); // NEW ONE
+        common.displayMenu(saveLoader.getSize());
+        //common.displayMenu(dbStorage.getSize()); // NEW ONE
         Log.printPromt("enter option");
         return common.getMainMenuOption();
     }
@@ -54,8 +54,8 @@ public class App {
         System.out.println(Log.wrapTitle("Calculation payments"));
         Log.printPromt("please enter name of user");
         String username = App.scanner.nextLine();
-        //User foundUser = saveLoader.findUser(username);
-        User foundUser = dbStorage.findUser(username);
+        User foundUser = saveLoader.findUser(username);
+        //User foundUser = dbStorage.findUser(username);
         if (foundUser == null) {
             return;
         }
@@ -79,16 +79,16 @@ public class App {
         }
         switch (sortField.substring(0,1).toLowerCase()) {
             case "i":
-                //saveLoader.sort(Comparator.comparing(User::getId));
-                dbStorage.sort(Comparator.comparing(User::getId));
+                saveLoader.sort(Comparator.comparing(User::getId));
+                //dbStorage.sort(Comparator.comparing(User::getId));
                 break;
             case "n":
-                //saveLoader.sort(Comparator.comparing(User::getName));
-                dbStorage.sort(Comparator.comparing(User::getName));
+                saveLoader.sort(Comparator.comparing(User::getName));
+                //dbStorage.sort(Comparator.comparing(User::getName));
                 break;
         }
-        //saveLoader.printUsers();
-        dbStorage.printUsers();
+        saveLoader.printUsers();
+        //dbStorage.printUsers();
     }
 
     private static void createUserProcess() {
@@ -103,12 +103,12 @@ public class App {
         }
         switch (accType.substring(0,1).toLowerCase()) {
             case "s":
-                //saveLoader.addUser(new User(username, AccountTypeEnum.SAVINGS));
-                dbStorage.addUser(new User(username, AccountTypeEnum.SAVINGS));
+                saveLoader.addUser(new User(username, AccountTypeEnum.SAVINGS));
+                //dbStorage.addUser(new User(username, AccountTypeEnum.SAVINGS));
                 break;
             case "c":
-                //saveLoader.addUser(new User(username, AccountTypeEnum.CHECKING));
-                dbStorage.addUser(new User(username, AccountTypeEnum.CHECKING));
+                saveLoader.addUser(new User(username, AccountTypeEnum.CHECKING));
+                //dbStorage.addUser(new User(username, AccountTypeEnum.CHECKING));
                 break;
             default:
                 Log.printlnError("you provide wrong account type");

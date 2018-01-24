@@ -1,5 +1,6 @@
 package paymaster.users;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import paymaster.accounts.Account;
 import paymaster.accounts.AccountTypeEnum;
 import paymaster.accounts.CheckingAccount;
@@ -13,9 +14,7 @@ public class User implements Comparable<User>, Serializable {
 
     private int id;
     private String name;
-
     private AccountTypeEnum accountType;
-
     private Account account;
 
     public User(String name, AccountTypeEnum accountType) {
@@ -54,6 +53,7 @@ public class User implements Comparable<User>, Serializable {
         }
     }
 
+    @JsonProperty("id")
     public int getId() {
         return id;
     }
