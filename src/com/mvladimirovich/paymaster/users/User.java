@@ -9,7 +9,7 @@ import java.io.Serializable;
 
 public class User implements Serializable {
 
-    private static int userCnts = 1;
+    private static int userCount = 1;
 
     public int getId() {
         return id;
@@ -29,11 +29,11 @@ public class User implements Serializable {
         switch (accountType) {
             case CHECKING:
                 this.account = new CheckingAccount(name, initBalance);
-                this.id = User.userCnts++;
+                this.id = userCount++;
                 break;
             case SAVINGS:
                 this.account = new SavingsAccount(name, initBalance);
-                this.id = User.userCnts++;
+                this.id = userCount++;
                 break;
             default:
                 break;

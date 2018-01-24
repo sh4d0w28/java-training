@@ -11,8 +11,8 @@ import java.util.*;
 public class UserFileStorage implements IUserStorage {
 
     private static final String storage = "/home/mvladimirovich/IdeaProjects/test/newstorage.bin";
-    private static final String ERR_CANNOTSAVE = "Cannot save data";
-    private static final String ERR_CANNOTLOAD = "Cannot load data";
+    private static final String ERR_CANT_SAVE = "Cannot save data";
+    private static final String ERR_CANT_LOAD = "Cannot load data";
 
     private List<User> users;
 
@@ -30,7 +30,7 @@ public class UserFileStorage implements IUserStorage {
             users = result;
             return result;
         } catch (Exception ex) {
-            Log.printlnError(ERR_CANNOTLOAD);
+            Log.printlnError(ERR_CANT_LOAD);
             return new ArrayList<>();
         }
     }
@@ -43,7 +43,7 @@ public class UserFileStorage implements IUserStorage {
             Log.printlnGood("Data saved to " + storage);
             return true;
         } catch (Exception ex) {
-            Log.printlnError(ERR_CANNOTSAVE);
+            Log.printlnError(ERR_CANT_SAVE);
             return false;
         }
     }

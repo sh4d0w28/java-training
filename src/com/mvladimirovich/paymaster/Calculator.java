@@ -4,7 +4,7 @@ import com.mvladimirovich.paymaster.common.Log;
 
 class Calculator {
 
-    private static final int taxrate = 45;
+    private static final int taxRate = 45;
     private static final int basicHrs = 40;
     private static final double otRate = 1.5;
     private static final int basicPay = 650000;
@@ -17,7 +17,7 @@ class Calculator {
             gross = workingHrs * basicPay;
         }
         //get tax
-        taxes = gross * taxrate / 100;
+        taxes = gross * taxRate / 100;
         //get net
         net = gross - taxes;
         Log.printlnGood("-- RESULT --");

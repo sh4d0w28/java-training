@@ -42,8 +42,8 @@ public class App {
     private static void userCreateProcess() {
 
         UI.printLnTitle("Creating new user");
-        String username = UI.getUserNameFromPromt();
-        String accType = UI.getUserAccDesiredTypeFromPromt();
+        String username = UI.getUserNameFromPrompt();
+        String accType = UI.getUserAccDesiredTypeFromPrompt();
 
         if (accType.length() == 0) {
             Log.printlnError("you provide wrong account type");
@@ -63,8 +63,7 @@ public class App {
                 Log.printlnError("you provide wrong account type");
                 break;
         }
-        if (toAdd != null) {
-            userStorage.add(toAdd);
+        if (toAdd != null && userStorage.add(toAdd)) {
             Log.printlnGood("user saved");
         } else {
             Log.printlnGood("user not saved");
@@ -74,7 +73,7 @@ public class App {
     private static void userDisplayProcess() {
         UI.printLnTitle("Displaying users");
 
-        String sortField = UI.getSortingOptionFromPromt();
+        String sortField = UI.getSortingOptionFromPrompt();
 
         if (sortField.length() == 0) {
             Log.printlnError("you provide wrong sort field");
@@ -96,14 +95,18 @@ public class App {
 
     private static void calculatePaymentProcess() {
         UI.printLnTitle("Calculation payments");
-        String username = UI.getUserNameFromPromt();
+        String username = UI.getUserNameFromPrompt();
         User foundUser = userStorage.get(username);
         if (foundUser == null) {
             return;
         }
-        double workingHrsAmount = UI.getWorkingHoursFromPromt();
+        double workingHrsAmount = UI.getWorkingHoursFromPrompt();
         double net = Calculator.calculateGrossNet(workingHrsAmount);
         foundUser.doDeposit(net);
-        userStorage.update(foundUser);
+        if(userStorage.update(foundUser)) {
+            Log.printlnGood("update success");
+        } else {
+            Log.printlnGood("update failed");
+        }
     }
 }

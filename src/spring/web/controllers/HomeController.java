@@ -11,7 +11,7 @@ import java.util.List;
 @RestController
 public class HomeController {
 
-    @GetMapping("/1")
+    @GetMapping("/users")
     public List<User> getUsers() {
 
         IUserStorage storage = new UserFileStorage();
