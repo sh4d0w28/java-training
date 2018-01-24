@@ -1,8 +1,8 @@
 package day2.exercise;
 
-import paymaster.accounts.Account;
-import paymaster.accounts.CheckingAccount;
-import paymaster.accounts.SavingsAccount;
+import com.mvladimirovich.paymaster.accounts.Account;
+import com.mvladimirovich.paymaster.accounts.CheckingAccount;
+import com.mvladimirovich.paymaster.accounts.SavingsAccount;
 
 public class App {
 

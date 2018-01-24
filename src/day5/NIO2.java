@@ -1,6 +1,6 @@
 package day5;
 
-import paymaster.accounts.CheckingAccount;
+import com.mvladimirovich.paymaster.accounts.CheckingAccount;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;

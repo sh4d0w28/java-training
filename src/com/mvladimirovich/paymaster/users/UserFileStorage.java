@@ -40,10 +40,10 @@ public class UserFileStorage implements IUserStorage {
              ObjectOutputStream oos = new ObjectOutputStream(binaryFos)
         ) {
             oos.writeObject(users);
-            paymaster.log.Log.printlnGood("Data saved to " + storage);
+            Log.printlnGood("Data saved to " + storage);
             return true;
         } catch (Exception ex) {
-            paymaster.log.Log.printlnError(ERR_CANNOTSAVE);
+            Log.printlnError(ERR_CANNOTSAVE);
             return false;
         }
     }
