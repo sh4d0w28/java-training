@@ -13,7 +13,6 @@ public class HomeController {
 
     @GetMapping("/users")
     public List<User> getUsers() {
-
         IUserStorage storage = new UserFileStorage();
         return storage.list();
     }

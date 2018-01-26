@@ -1,5 +1,7 @@
 package com.mvladimirovich.paymaster.users;
 
+import com.fasterxml.jackson.annotation.JsonGetter;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import com.mvladimirovich.paymaster.accounts.Account;
 import com.mvladimirovich.paymaster.accounts.AccountTypeEnum;
 import com.mvladimirovich.paymaster.accounts.CheckingAccount;
@@ -10,14 +12,6 @@ import java.io.Serializable;
 public class User implements Serializable {
 
     private static int userCount = 1;
-
-    public int getId() {
-        return id;
-    }
-
-    public String getName() {
-        return name;
-    }
 
     private int id;
     private final String name;
@@ -38,6 +32,21 @@ public class User implements Serializable {
             default:
                 break;
         }
+    }
+
+    @JsonGetter("balance")
+    public String getBal() {
+        return this.toString();
+    }
+
+    @JsonGetter("id")
+    public int getId() {
+        return id;
+    }
+
+    @JsonGetter("username")
+    public String getName() {
+        return name;
     }
 
     public void doDeposit(double d) {
